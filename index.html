@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reloj Mundial</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            background: #808080;
+            color: white;
+
+            font-family: "Gill Sans", "Gill Sans MT", sans-serif;
+
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedor {
+            text-align: center;
+        }
+
+        .titulo {
+            font-size: 30px;
+            margin-bottom: 28px;
+        }
+
+        .fila-reloj {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .autor {
+            font-size: 18px;
+            margin-right: 12px;
+
+            white-space: nowrap;
+        }
+
+        .hora {
+            font-family: "Gill Sans", "Gill Sans MT", sans-serif;
+
+            font-size: 72px;
+            font-weight: bold;
+
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .fecha {
+            font-size: 25px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <div class="titulo">
+            Reloj Mundial
+        </div>
+
+        <div class="fila-reloj">
+
+            <div class="autor">
+                Hecho Por Esteban
+            </div>
+
+            <div class="hora" id="hora">
+                00:00:00
+            </div>
+
+        </div>
+
+        <div class="fecha" id="fecha">
+            8 de noviembre de 2011
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function actualizarReloj() {
+
+            // Obtiene la hora REAL de la computadora
+            const ahora = new Date();
+
+            // Hora, minutos y segundos reales
+            const hora = ahora.toLocaleTimeString("es-AR", {
+                hour: "numeric",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true
+            });
+
+            document.getElementById("hora").textContent = hora;
+
+
+            // Mantiene el día y mes actuales,
+            // pero cambia el año a 2011
+            const fecha = ahora.toLocaleDateString("es-AR", {
+                day: "numeric",
+                month: "long"
+            });
+
+            document.getElementById("fecha").textContent =
+                fecha + " de 2011";
+        }
+
+
+        // Actualizar inmediatamente
+        actualizarReloj();
+
+
+        // Actualizar cada segundo
+        setInterval(actualizarReloj, 1000);
+
+    </script>
+
+</body>
+</html>
