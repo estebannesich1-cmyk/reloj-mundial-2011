@@ -28,7 +28,7 @@ Reloj Mundial:
 
 ## Autor
 
-**Esteban Nesuch**
+**Esteban Nesich**
 
 ## Licencia No
 
